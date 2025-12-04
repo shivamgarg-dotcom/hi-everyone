@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DairyFresh - Product Listing</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#2b8cee",
+            "background-light": "#f6f7f8",
+            "background-dark": "#101922",
+          },
+          fontFamily: {
+            "display": ["Work Sans", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen w-full flex-col">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-20 w-full border-b border-slate-200 dark:border-slate-800 bg-background-light dark:bg-background-dark/80 backdrop-blur-sm">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between py-3">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2 text-slate-900 dark:text-slate-50">
+<span class="material-symbols-outlined text-primary text-3xl">compost</span>
+<h2 class="text-xl font-bold">DairyFresh</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary" href="#">Home</a>
+<a class="text-sm font-bold text-primary dark:text-primary" href="#">Products</a>
+<a class="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary" href="#">About Us</a>
+<a class="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary" href="#">Contact</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex relative w-full max-w-xs">
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-slate-400 dark:text-slate-500">
+<span class="material-symbols-outlined text-xl">search</span>
+</div>
+<input class="form-input flex w-full rounded-lg text-slate-900 dark:text-slate-50 bg-slate-100 dark:bg-slate-800 border-transparent focus:border-primary focus:ring-primary h-10 placeholder:text-slate-400 dark:placeholder:text-slate-500 pl-10 text-sm font-normal" placeholder="Search products..." type="search"/>
+</div>
+<button class="flex h-10 w-10 cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined">person</span>
+</button>
+<button class="relative flex h-10 w-10 cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="absolute top-1.5 right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-xs font-bold text-white">3</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="container mx-auto flex flex-1 flex-col px-4 py-8 sm:px-6 lg:flex-row lg:gap-8 lg:px-8">
+<!-- SideNavBar / Filters -->
+<aside class="w-full shrink-0 lg:w-64 xl:w-72 mb-8 lg:mb-0">
+<div class="sticky top-24 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark p-4">
+<div class="flex items-center gap-3 pb-4 border-b border-slate-200 dark:border-slate-800">
+<span class="material-symbols-outlined text-slate-700 dark:text-slate-300">filter_list</span>
+<h1 class="text-slate-900 dark:text-slate-50 text-lg font-semibold">Filters</h1>
+</div>
+<div class="flex flex-col divide-y divide-slate-200 dark:divide-slate-800">
+<!-- Accordion: Category -->
+<details class="flex flex-col py-2 group" open="">
+<summary class="flex cursor-pointer items-center justify-between gap-6 py-2 list-none">
+<p class="text-slate-900 dark:text-slate-50 text-base font-medium">Category</p>
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400 group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="pt-2">
+<label class="flex gap-x-3 py-1.5 flex-row">
+<input checked="" class="h-5 w-5 rounded border-slate-300 dark:border-slate-700 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-1 focus:ring-offset-0 focus:ring-primary dark:focus:ring-offset-slate-900 dark:bg-slate-800" type="checkbox"/>
+<p class="text-slate-700 dark:text-slate-300 text-sm font-normal">Milk</p>
+</label>
+<label class="flex gap-x-3 py-1.5 flex-row">
+<input checked="" class="h-5 w-5 rounded border-slate-300 dark:border-slate-700 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-1 focus:ring-offset-0 focus:ring-primary dark:focus:ring-offset-slate-900 dark:bg-slate-800" type="checkbox"/>
+<p class="text-slate-700 dark:text-slate-300 text-sm font-normal">Cheese</p>
+</label>
+<label class="flex gap-x-3 py-1.5 flex-row">
+<input class="h-5 w-5 rounded border-slate-300 dark:border-slate-700 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-1 focus:ring-offset-0 focus:ring-primary dark:focus:ring-offset-slate-900 dark:bg-slate-800" type="checkbox"/>
+<p class="text-slate-700 dark:text-slate-300 text-sm font-normal">Yogurt</p>
+</label>
+<label class="flex gap-x-3 py-1.5 flex-row">
+<input class="h-5 w-5 rounded border-slate-300 dark:border-slate-700 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-1 focus:ring-offset-0 focus:ring-primary dark:focus:ring-offset-slate-900 dark:bg-slate-800" type="checkbox"/>
+<p class="text-slate-700 dark:text-slate-300 text-sm font-normal">Butter</p>
+</label>
+</div>
+</details>
+<!-- Accordion: Brand -->
+<details class="flex flex-col py-2 group">
+<summary class="flex cursor-pointer items-center justify-between gap-6 py-2 list-none">
+<p class="text-slate-900 dark:text-slate-50 text-base font-medium">Brand</p>
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400 group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="pt-2">
+<label class="flex gap-x-3 py-1.5 flex-row">
+<input class="h-5 w-5 rounded border-slate-300 dark:border-slate-700 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-1 focus:ring-offset-0 focus:ring-primary dark:focus:ring-offset-slate-900 dark:bg-slate-800" type="checkbox"/>
+<p class="text-slate-700 dark:text-slate-300 text-sm font-normal">Happy Cow</p>
+</label>
+<label class="flex gap-x-3 py-1.5 flex-row">
+<input class="h-5 w-5 rounded border-slate-300 dark:border-slate-700 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-1 focus:ring-offset-0 focus:ring-primary dark:focus:ring-offset-slate-900 dark:bg-slate-800" type="checkbox"/>
+<p class="text-slate-700 dark:text-slate-300 text-sm font-normal">Golden Farms</p>
+</label>
+<label class="flex gap-x-3 py-1.5 flex-row">
+<input class="h-5 w-5 rounded border-slate-300 dark:border-slate-700 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-1 focus:ring-offset-0 focus:ring-primary dark:focus:ring-offset-slate-900 dark:bg-slate-800" type="checkbox"/>
+<p class="text-slate-700 dark:text-slate-300 text-sm font-normal">Creamline</p>
+</label>
+</div>
+</details>
+<!-- Accordion: Price -->
+<details class="flex flex-col py-2 group">
+<summary class="flex cursor-pointer items-center justify-between gap-6 py-2 list-none">
+<p class="text-slate-900 dark:text-slate-50 text-base font-medium">Price</p>
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400 group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="pt-4">
+<div class="flex h-[38px] w-full items-center">
+<div class="relative h-1 w-full rounded-sm bg-slate-200 dark:bg-slate-700">
+<div class="absolute h-1 rounded-sm bg-primary" style="left: 10%; right: 40%"></div>
+<div class="absolute -top-1.5" style="left: 10%">
+<div class="size-4 cursor-pointer rounded-full border-2 border-white dark:border-slate-900 bg-primary ring-2 ring-primary"></div>
+</div>
+<div class="absolute -top-1.5" style="right: 40%">
+<div class="size-4 cursor-pointer rounded-full border-2 border-white dark:border-slate-900 bg-primary ring-2 ring-primary"></div>
+</div>
+</div>
+</div>
+<div class="flex justify-between mt-2">
+<p class="text-slate-600 dark:text-slate-400 text-sm">$5</p>
+<p class="text-slate-600 dark:text-slate-400 text-sm">$30</p>
+</div>
+</div>
+</details>
+</div>
+<div class="mt-6">
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-primary text-white gap-2 text-sm font-bold leading-normal tracking-wide">Apply Filters</button>
+</div>
+</div>
+</aside>
+<!-- Product Grid -->
+<div class="w-full">
+<div class="flex flex-col sm:flex-row items-baseline justify-between pb-6 border-b border-slate-200 dark:border-slate-800">
+<h1 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-50">Our Dairy Selection</h1>
+<div class="relative mt-4 sm:mt-0">
+<select class="form-select w-full sm:w-auto rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 focus:border-primary focus:ring-primary pl-3 pr-8">
+<option>Sort by: Popularity</option>
+<option>Sort by: Price - Low to High</option>
+<option>Sort by: Price - High to Low</option>
+<option>Sort by: Newest</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 pt-6">
+<!-- Product Card 1 -->
+<div class="group relative flex flex-col overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark shadow-sm hover:shadow-lg transition-shadow duration-300">
+<div class="aspect-square bg-slate-100 dark:bg-slate-800">
+<img class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" data-alt="A glass bottle of fresh milk on a wooden table." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCw8MisNTLYbG0krEUO0HRGek2NqdGvbuV8_Xxt33aMrCUAbrN7UJBERjR9vHtZ_LGiDPANx3ANuAWe31zwPNGvYVHMFxiCmk9qXTUMKk_aF2OJuUZlu_wGuTTuFHtmjpjyVr0y63ji3Bj0UPrLxlGhj1b7js1WFZQkn2cTSKOIsDi9nR3m5zdnfiwW2LqeBIR4JYxT1Ppu1KKw54SciD4KqoU5jeqoNnEkN3upamCkpx8cioj4jB-YzgScS3rpBljL5BMQechUT0g"/>
+</div>
+<div class="flex flex-1 flex-col p-4">
+<h3 class="text-base font-semibold text-slate-900 dark:text-slate-50">Organic Whole Milk</h3>
+<div class="flex flex-1 flex-col items-start justify-end pt-4">
+<p class="text-lg font-bold text-slate-800 dark:text-slate-200">$3.99</p>
+<button class="mt-3 flex w-full items-center justify-center gap-2 rounded-lg bg-primary/20 dark:bg-primary/30 py-2.5 text-sm font-bold text-primary transition hover:bg-primary hover:text-white">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+                  Add to Cart
+                </button>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group relative flex flex-col overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark shadow-sm hover:shadow-lg transition-shadow duration-300">
+<div class="aspect-square bg-slate-100 dark:bg-slate-800">
+<img class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" data-alt="A block of aged cheddar cheese on a cutting board." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVUVrn1wtilox3q_JsIqKb7opmoA_szYKlPo6M4iw6WtvhywtEkcqC2yAQFo7DnOqt1WIbY3Jtw-NBqm-LJvAYJMWBZin94WmIRpM8hZvQXBVj39PqkQDbLVqEhgMnDBWoCvwXwGGCmQVd6u2_5eLzrV8oEYMc4cH1woxChp8LbjYV6OtQJdJrTgnoN3APoyHuk_cZhkep86VipmCwX3ISoreRDFh_JNkQdRUnXGu6to8Eu0TXK0FLX1_ln4hJnRTbBNUJmKwP8YI"/>
+</div>
+<div class="flex flex-1 flex-col p-4">
+<h3 class="text-base font-semibold text-slate-900 dark:text-slate-50">Aged Cheddar Cheese</h3>
+<div class="flex flex-1 flex-col items-start justify-end pt-4">
+<p class="text-lg font-bold text-slate-800 dark:text-slate-200">$8.49</p>
+<button class="mt-3 flex w-full items-center justify-center gap-2 rounded-lg bg-primary/20 dark:bg-primary/30 py-2.5 text-sm font-bold text-primary transition hover:bg-primary hover:text-white">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+                  Add to Cart
+                </button>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group relative flex flex-col overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark shadow-sm hover:shadow-lg transition-shadow duration-300">
+<div class="aspect-square bg-slate-100 dark:bg-slate-800">
+<img class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" data-alt="A bowl of creamy Greek yogurt with berries." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUWWPDDJFTI333cWP3EvoCv7N7CR0ZhGDR5pZCM2We0IBa9JIN2iz4dPdfAm96_1k_BDIlm0Pmin8Y6zgD-JnZ0vA7gYUICcFF8OifuRd3WHR-Puk660vH0qwVI2Vg0T-gCMeUtfDraqEc_af8kBkOjnjlFSraLm5XswPWAoJmnek4NGlGLMsubDWnAaDP3W8L6Hf-Oibd4tdT6cOAExAWNSrYU_hivbW1uGzHq4u5dWsRgadAq2RN1nsQOvm7mKHW7NB7o-992BU"/>
+</div>
+<div class="flex flex-1 flex-col p-4">
+<h3 class="text-base font-semibold text-slate-900 dark:text-slate-50">Greek Style Yogurt</h3>
+<div class="flex flex-1 flex-col items-start justify-end pt-4">
+<p class="text-lg font-bold text-slate-800 dark:text-slate-200">$2.25</p>
+<button class="mt-3 flex w-full items-center justify-center gap-2 rounded-lg bg-primary/20 dark:bg-primary/30 py-2.5 text-sm font-bold text-primary transition hover:bg-primary hover:text-white">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+                  Add to Cart
+                </button>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group relative flex flex-col overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark shadow-sm hover:shadow-lg transition-shadow duration-300">
+<div class="aspect-square bg-slate-100 dark:bg-slate-800">
+<img class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" data-alt="A stick of unsalted butter on parchment paper." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB75LoBAef4z4Oz1zZjoWVA82lA2xdVDtQZYJ5vTjsNvXOgHvyHuvwW4F-42OLddil1O9IMZFSLjmRJKeSk8gzC7j2-k8NcG7ZbqGWeImL9BphS5gpDTnxD8J-UWiiYMWFHRLycd-DCELAsopxPpfIVpDda6X1AWJGOQZGDS4k1UqMomLws7UZnOX6NeHANF1Ov0rKNFY34ZCm0_pMz-vKtZr1FMKgbQXZU7X7ISuyDQ-AXE0mtLC4OIAmXNHOs_EIJqVj57H0G9Pk"/>
+</div>
+<div class="flex flex-1 flex-col p-4">
+<h3 class="text-base font-semibold text-slate-900 dark:text-slate-50">Unsalted Farm Butter</h3>
+<div class="flex flex-1 flex-col items-start justify-end pt-4">
+<p class="text-lg font-bold text-slate-800 dark:text-slate-200">$4.50</p>
+<button class="mt-3 flex w-full items-center justify-center gap-2 rounded-lg bg-primary/20 dark:bg-primary/30 py-2.5 text-sm font-bold text-primary transition hover:bg-primary hover:text-white">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+                  Add to Cart
+                </button>
+</div>
+</div>
+</div>
+<!-- Product Card 5 -->
+<div class="group relative flex flex-col overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark shadow-sm hover:shadow-lg transition-shadow duration-300">
+<div class="aspect-square bg-slate-100 dark:bg-slate-800">
+<img class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" data-alt="A wheel of brie cheese with figs and crackers." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4u98GkAftBOM1WspXHh_wdCL7e1cN6UgAQXvSNrdIxPXQW-UgnF2ZKZrtc1S_xCn-Azb3duL-rBaGLl1Y9lu4bRqUfnSaHpiaqMUJC1zc28MTool1pxt0dTU1XBDCGnxa2WKMGbc4d9kGs3O8o7BFpV3aFMiKQP3jOH7pC8z8z6YZpHGpCcFF2_iArG9DwSAM6Qgn3KxrlE_ldGFC9HgiOjyofJlDpn12udUu-8sGloL8xmyumie4tsPF4zXONuXN867iURI3u1E"/>
+</div>
+<div class="flex flex-1 flex-col p-4">
+<h3 class="text-base font-semibold text-slate-900 dark:text-slate-50">Soft-Ripened Brie</h3>
+<div class="flex flex-1 flex-col items-start justify-end pt-4">
+<p class="text-lg font-bold text-slate-800 dark:text-slate-200">$12.99</p>
+<button class="mt-3 flex w-full items-center justify-center gap-2 rounded-lg bg-primary/20 dark:bg-primary/30 py-2.5 text-sm font-bold text-primary transition hover:bg-primary hover:text-white">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+                  Add to Cart
+                </button>
+</div>
+</div>
+</div>
+<!-- Product Card 6 -->
+<div class="group relative flex flex-col overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark shadow-sm hover:shadow-lg transition-shadow duration-300">
+<div class="aspect-square bg-slate-100 dark:bg-slate-800">
+<img class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" data-alt="A small bottle of creamy kefir." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZ_usyzULSvnn1DrPtzsAs5HbOtylS8PLeYAPYVx4fGXbnAujTtllSEzZxIPN7n0j2y0YWsPguw0fwT6T4Ui170PV11tqqALOjApncAL0aE40fBZr87YK7Y_kWEGK6WM4YJ_NIQgFVuxykp9tBPr0dDTeWsnQEFzciRdwi6-M1L9a0p70pwgcoXMdLfsD6WZTdYewTxpXzwhWzu4CQ1cG719Brgfr--uLle5KTMnKGYvyDo0lgpUH3vXaf9r9o9FFmTT6m23xoMGE"/>
+</div>
+<div class="flex flex-1 flex-col p-4">
+<h3 class="text-base font-semibold text-slate-900 dark:text-slate-50">Plain Probiotic Kefir</h3>
+<div class="flex flex-1 flex-col items-start justify-end pt-4">
+<p class="text-lg font-bold text-slate-800 dark:text-slate-200">$5.15</p>
+<button class="mt-3 flex w-full items-center justify-center gap-2 rounded-lg bg-primary/20 dark:bg-primary/30 py-2.5 text-sm font-bold text-primary transition hover:bg-primary hover:text-white">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+                  Add to Cart
+                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
